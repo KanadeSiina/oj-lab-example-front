@@ -17,7 +17,7 @@ function ListItems(props) {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
-      <ListItemButton>
+      <ListItemButton href='/Problems' selected={props.selectedItem === "Problems"}>
         <ListItemIcon>
           <QuizIcon />
         </ListItemIcon>
