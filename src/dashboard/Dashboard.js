@@ -17,6 +17,7 @@ import Copyright from '../components/Copyright';
 import AccountMenu from '../components/AccountMenu';
 import { getCurrentUser } from '../services/user';
 import ProblemPage from '../pages/ProblemPage';
+import DashboardPage from '../pages/DashboardPage';
 
 const drawerWidth = 240;
 
@@ -153,7 +154,7 @@ function DashboardContent(props) {
           }}
         >
           <Toolbar />
-          {props.selectedItem === 'Dashboard' ? undefined : undefined }
+          {props.selectedItem === 'Dashboard' ? <DashboardPage /> : undefined }
           {props.selectedItem === 'Problems' ? <ProblemPage /> : undefined }
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Copyright sx={{ pt: 4 }} />
