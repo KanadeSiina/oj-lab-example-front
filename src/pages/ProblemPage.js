@@ -1,5 +1,11 @@
 import * as React from 'react';
 import { Container, Button, Grid, Box, TextField, ButtonGroup, Paper } from '@mui/material';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 import { useLocation } from 'react-router';
 
 function Create() {
@@ -73,17 +79,59 @@ function Create() {
   )
 }
 
+function ProblemList() {
+  let [problems, setProblems] = React.useState([{id: 1, name: 'A+B Problem', tags: 'Implementation', status: 'Accepted'}]);
+  return (
+    <Grid container justifyContent="center" spacing={2}>
+      <Grid item xs={10}>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Pid</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Tags</TableCell>
+                <TableCell>Status</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {problems.map((row) => (
+                <TableRow
+                  key={row.id}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    <a href='#'>{row.id}</a>
+                  </TableCell>
+                  <TableCell href='#'>
+                    <a href='#'>{row.name}</a>
+                  </TableCell>
+                  <TableCell>{row.tags}</TableCell>
+                  <TableCell>{row.status}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Grid>
+    </Grid>
+  )
+}
+
 function Main() {
   return (
-    <Container  maxWidth='false' sx={{ mt: 4, mb: 4 }}>
-      <Grid container spacing={3}>
-        <Grid item>
-          <Button variant="contained" onClick={() => {
-            window.location.replace('/Problems/Create');
-          }}>Create Problem</Button>
+    <div>
+      <Container maxWidth='false' sx={{ mt: 4, mb: 4 }}>
+        <Grid container spacing={3}>
+          <Grid item>
+            <Button variant="contained" onClick={() => {
+              window.location.replace('/Problems/Create');
+            }}>Create Problem</Button>
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+      <ProblemList />
+    </div>
   )
 }
 
