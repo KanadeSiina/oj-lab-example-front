@@ -9,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/SignIn" element={<SignInSide />} />
         <Route path="/Dashboard" element={<Dashboard selectedItem="Dashboard" />} />
+        <Route path="/Test" element={<Dashboard selectedItem="Test" />} />
         <Route path="/Problems" element={<Dashboard selectedItem="Problems" />} />
         <Route path="/Problems/Create" element={<Dashboard selectedItem="Problems" />} />
       </Routes>
