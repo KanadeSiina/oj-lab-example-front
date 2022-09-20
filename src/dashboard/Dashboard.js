@@ -78,7 +78,6 @@ function DashboardContent(props) {
   React.useEffect(() => {
     if (currentUser === null) {
       getCurrentUser()
-        .then(response => response.json())
         .then(result => {
           console.log(result);
           setCurrentUser(result);

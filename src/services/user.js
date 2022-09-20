@@ -1,21 +1,11 @@
-export function login(account, password) {
-  var formdata = new FormData();
-  formdata.append("password", password);
+import rest from '../rest'
 
-  var requestOptions = {
-    method: 'POST',
-    body: formdata,
-    redirect: 'follow'
-  };
-
-  return fetch(`/api/user/${account}/login`, requestOptions)
+export async function login(account, password) {
+  let res = await rest.post(`/api/user/login`, {'username': account, 'password': password})
+  return res.data
 }
 
-export function getCurrentUser() {
-  var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-
-  return fetch(`/api/user/current`, requestOptions)
+export async function getCurrentUser() {
+  let res = await rest.get(`/api/user/current`)
+  return res.data.username
 }
