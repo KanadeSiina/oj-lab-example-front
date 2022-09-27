@@ -12,6 +12,7 @@ function App() {
         <Route path="/Test" element={<Dashboard selectedItem="Test" />} />
         <Route path="/Problems" element={<Dashboard selectedItem="Problems" />} />
         <Route path="/Problems/Create" element={<Dashboard selectedItem="Problems" />} />
+        <Route path={`/Problems/:pid`} element={<Dashboard selectedItem="Problems" />} />
       </Routes>
     </div>
   );
