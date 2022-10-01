@@ -18,6 +18,7 @@ import AccountMenu from '../components/AccountMenu';
 import { getCurrentUser } from '../services/user';
 import ProblemPage from '../pages/ProblemPage';
 import DashboardPage from '../pages/DashboardPage';
+import TestPage from '../pages/TestPage'
 
 const drawerWidth = 240;
 
@@ -77,7 +78,6 @@ function DashboardContent(props) {
   React.useEffect(() => {
     if (currentUser === null) {
       getCurrentUser()
-        .then(response => response.json())
         .then(result => {
           console.log(result);
           setCurrentUser(result);
@@ -156,6 +156,7 @@ function DashboardContent(props) {
           <Toolbar />
           {props.selectedItem === 'Dashboard' ? <DashboardPage /> : undefined }
           {props.selectedItem === 'Problems' ? <ProblemPage /> : undefined }
+          {props.selectedItem === 'Test' ? <TestPage /> : undefined }
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Copyright sx={{ pt: 4 }} />
           </Container>

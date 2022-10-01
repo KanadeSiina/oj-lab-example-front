@@ -41,6 +41,12 @@ function ListItems(props) {
         </ListItemIcon>
         <ListItemText primary="Machines" />
       </ListItemButton>
+      <ListItemButton href='/Test' selected={props.selectedItem === "Test"}>
+        <ListItemIcon>
+          <CloudIcon />
+        </ListItemIcon>
+        <ListItemText primary="Test"/>
+      </ListItemButton>
     </React.Fragment>
   );
 }

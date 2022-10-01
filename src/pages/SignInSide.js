@@ -20,7 +20,6 @@ export default function SignInSide() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     login(data.get('account'), data.get('password'))
-      .then(response => response.json())
       .then(result => {
         console.log(result.status);
         if (result.status === 'success') {
